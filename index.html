@@ -11,7 +11,7 @@
   <!-- Clear, legible font stack: Inter (sans) + Space Grotesk for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -42,7 +42,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Jura', sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-light);
       line-height: 1.5;
@@ -50,7 +50,6 @@
     }
 
     h1, h2, h3, h4, .heading-font {
-      font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
       letter-spacing: -0.02em;
     }
@@ -89,7 +88,6 @@
       justify-content: space-between;
     }
     .logo {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
       background: var(--accent-gradient);
@@ -275,7 +273,6 @@
       padding: 4rem 0 6rem;
     }
     .section-title {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 2.5rem;
@@ -484,6 +481,15 @@
       .nav-links { gap: 1.5rem; }
       .container-custom { padding: 0 1.2rem; }
     }
+    .info-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .info-list li .date-pill {
+      margin-bottom: 0.25rem;
+    }
   </style>
 </head>
 <body>
@@ -527,35 +533,44 @@
     <!-- Expertise card -->
     <div class="info-card">
       <div class="icon-circle"><i class="fa-solid fa-code"></i></div>
-      <h3>expertise</h3>
+      <h3>Expertise</h3>
       <ul class="info-list">
-        <li><i class="fa-regular fa-circle-check"></i> <strong>PHP Codeigniter 4 / MVC</strong></li>
-        <li><i class="fa-regular fa-circle-check"></i> JavaScript (ES6), Ajax, Bootstrap</li>
-        <li><i class="fa-regular fa-circle-check"></i> MySQL · database architecture</li>
-        <li><i class="fa-regular fa-circle-check"></i> Network & hardware troubleshooting</li>
-        <li><i class="fa-regular fa-circle-check"></i> WordPress / cPanel / GoDaddy</li>
-        <li><i class="fa-regular fa-circle-check"></i> Photoshop / video basics</li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> PHP Codeigniter 4 / MVC</strong></li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> JavaScript (ES6), Ajax, Bootstrap</strong></li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> MySQL · database architecture</strong></li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> Network & hardware troubleshooting</strong></li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> WordPress / cPanel / GoDaddy</strong></li>
+        <li><strong><i class="fa-regular fa-circle-check"></i> Photoshop / video basics</strong></li>
       </ul>
     </div>
     <!-- Education card -->
     <div class="info-card">
       <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
-      <h3>education</h3>
+      <h3>Education</h3>
       <ul class="info-list">
-        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill"><i class="fa-regular fa-circle-check" style="font-size:0.8rem;"></i> 2016</span> <strong>BS Info Tech</strong> – Southern de Oro Philippines College</li>
-        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill">2010</span> Sagay National High School</li>
-        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill">2007</span> Bugang Elementary School</li>
+        <li>
+          <span class="date-pill"><i class="fa-regular fa-calendar"></i> <i class="fa-regular fa-circle-check" style="font-size:0.8rem;"></i> 2016</span>
+          <div style="margin-top: 0.5rem;"><strong>BS Info Tech</strong> – Southern de Oro Philippines College</div>
+        </li>
+        <li>
+          <span class="date-pill"><i class="fa-regular fa-calendar"></i> 2010</span>
+          <div style="margin-top: 0.5rem;">Sagay National High School</div>
+        </li>
+        <li>
+          <span class="date-pill"><i class="fa-regular fa-calendar"></i> 2007</span>
+          <div style="margin-top: 0.5rem;">Bugang Elementary School</div>
+        </li>
       </ul>
     </div>
     <!-- Track record card -->
     <div class="info-card">
       <div class="icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-      <h3>track record</h3>
+      <h3>Track Record</h3>
       <ul class="info-list">
-        <li><i class="fa-regular fa-building"></i> <strong>Braveegg Internet</strong> – Backend Dev (2022–Present)</li>
-        <li><i class="fa-regular fa-building"></i> <strong>LCG Group (IT Specialist)</strong> – 2018–2022</li>
-        <li><i class="fa-regular fa-building"></i> <strong>MIS Associate, LCG</strong> – 2016–2018</li>
-        <li><i class="fa-regular fa-building"></i> <strong>Computer Technician, Netopia</strong> – 2016</li>
+        <li><strong><i class="fa-regular fa-building"></i> Braveegg Internet</strong> – Backend Dev (2022–Present)</li>
+        <li><strong><i class="fa-regular fa-building"></i> LCG Group (IT Specialist)</strong> – 2018–2022</li>
+        <li><strong><i class="fa-regular fa-building"></i> MIS Associate, LCG</strong> – 2016–2018</li>
+        <li><strong><i class="fa-regular fa-building"></i> Computer Technician, Netopia</strong> – 2016</li>
       </ul>
     </div>
   </div>
@@ -677,7 +692,7 @@
       </div>
     </div>
     <div class="copyright">
-      © 2025 Rustom Codilan _ All Rights Received
+      © 2025 Rustom Codilan – All Rights Received
     </div>
   </div>
 </footer>
@@ -696,6 +711,5 @@
     });
   });
 </script>
-<script src="assets/js/images-grid.js"></script>
 </body>
 </html>
