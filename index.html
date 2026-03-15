@@ -1,346 +1,701 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="Here you can view a reliable source codes that has been created just for you. You can search project components that can be helpful in your own research."/>
-    <meta name="author" content="Rustom Codilan" />
-	<title>My Portfolio</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link href="assets/css/font.css?family=CynthoSlabW00-ExtraLight:400,700,900" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ruda:wght@400..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-	<link href="assets/css/style.css" rel="stylesheet">
-	<link href="assets/css/images-grid.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rustom Codilan – Senior backend architect & IT strategist. Dark, executive portfolio.">
+  <title>Rustom Codilan · executive dark</title>
+  <!-- Bootstrap 5 + icons + modern fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- Clear, legible font stack: Inter (sans) + Space Grotesk for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Dark palette – deep, elegant, high readability */
+      --bg-dark: #0e0e10;
+      --bg-surface: #17171a;
+      --bg-card: #1e1e24;
+      --bg-elevated: #26262e;
+      --text-light: #f0f0f2;
+      --text-muted: #b0b3b8;
+      --text-dim: #8a8f99;
+      --accent-primary: #f97316;      /* warm orange – clear contrast */
+      --accent-secondary: #ffb347;
+      --accent-gradient: linear-gradient(135deg, #f97316, #ffb347);
+      --border-dim: #2c2c34;
+      --shadow-soft: 0 15px 35px -10px rgba(0,0,0,0.7);
+      --shadow-hover: 0 25px 40px -12px rgba(249,115,22,0.25);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --transition: all 0.25s cubic-bezier(0.3,0,0,1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .heading-font {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container-custom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ----- glass navbar (dark, subtle) ----- */
+    .navbar-modern {
+      padding: 1.2rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+      background: rgba(10, 10, 15, 0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .navbar-modern.scrolled {
+      background: rgba(20, 20, 25, 0.85);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+    .navbar-modern .container-custom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--text-light);
+      border-bottom-color: var(--accent-primary);
+    }
+
+    /* ----- HERO section (high contrast) ----- */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 4rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-name {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+    }
+    .hero-name .smaller {
+      font-size: 2.8rem;
+      font-weight: 400;
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .hero-tagline {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin: 1.8rem 0 2.2rem;
+      border-left: 6px solid var(--accent-primary);
+      padding-left: 2rem;
+      font-weight: 400;
+    }
+    .hero-image {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-dim);
+      aspect-ratio: 4/5;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.95;
+      transition: transform 0.6s;
+    }
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+    .btn-accent {
+      background: var(--accent-gradient);
+      border: none;
+      color: #0e0e10;
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 15px 25px -8px rgba(249,115,22,0.3);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .btn-accent i {
+      transition: transform 0.2s;
+    }
+    .btn-accent:hover {
+      box-shadow: 0 20px 30px -8px #f97316;
+      transform: translateY(-4px);
+    }
+    .btn-accent:hover i {
+      transform: translateX(6px);
+    }
+
+    /* ----- INFO CARDS (dark surface, circular icons) ----- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 5rem 0;
+    }
+    .info-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      border: 1px solid var(--border-dim);
+      backdrop-filter: blur(8px);
+    }
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: #f9731640;
+    }
+    .icon-circle {
+      width: 68px;
+      height: 68px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 18px -6px rgba(249,115,22,0.5);
+    }
+    .icon-circle i {
+      font-size: 2.2rem;
+      color: #0e0e10;
+    }
+    .info-card h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid var(--accent-primary);
+      display: inline-block;
+      padding-bottom: 0.2rem;
+      color: var(--text-light);
+    }
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      font-size: 1.05rem;
+    }
+    .info-list li i {
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+      min-width: 1.6rem;
+      margin-top: 0.1rem;
+    }
+    .info-list strong {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    .date-pill {
+      background: #2c2c36;
+      border-radius: 40px;
+      padding: 0.2rem 1.2rem 0.2rem 1rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    /* ----- PROJECT GRID (dark, clean, circles for heart) ----- */
+    .projects-section {
+      padding: 4rem 0 6rem;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: var(--text-light);
+    }
+    .section-title span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      border: 1px solid var(--border-dim);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-hover);
+      border-color: #f9731640;
+    }
+    .project-img {
+      height: 210px;
+      overflow: hidden;
+      background: var(--bg-elevated);
+    }
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: transform 0.5s;
+    }
+    .project-card:hover .project-img img {
+      transform: scale(1.04);
+    }
+    .project-content {
+      padding: 1.8rem 1.8rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-content h4 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .project-content h4 a {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .project-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-dim);
+      padding-top: 1.2rem;
+      margin-top: auto;
+    }
+    .project-footer a {
+      font-weight: 600;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .heart-circle {
+      width: 36px;
+      height: 36px;
+      background: #2f2f3a;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      transition: 0.2s;
+    }
+    .project-card:hover .heart-circle {
+      background: var(--accent-primary);
+      color: #0e0e10;
+    }
+    .project-footer span {
+      color: var(--text-dim);
+    }
+
+    /* ----- FOOTER (dark deep) ----- */
+    .footer-modern {
+      background: #0a0a0c;
+      color: #ddd;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      padding: 5rem 0 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #24242a;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 3.5rem;
+    }
+    .footer-col .logo {
+      background: none;
+      -webkit-background-clip: unset;
+      color: white;
+      font-size: 2.2rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .footer-col p {
+      color: var(--text-dim);
+      margin: 1.2rem 0 2rem;
+    }
+    .social-circle {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-circle a {
+      width: 48px;
+      height: 48px;
+      background: #1e1e26;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f0f0f2;
+      font-size: 1.5rem;
+      transition: 0.2s;
+      border: 1px solid #33333d;
+    }
+    .social-circle a:hover {
+      background: var(--accent-primary);
+      color: #0e0e10;
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+    .footer-col h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .footer-links a {
+      display: block;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+    .contact-item i {
+      width: 44px;
+      height: 44px;
+      background: #1e1e26;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+      border: 1px solid #33333d;
+    }
+    .copyright {
+      text-align: center;
+      color: #5a5a66;
+      border-top: 1px solid #24242a;
+      padding-top: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-name { font-size: 3.8rem; }
+    }
+    @media (max-width: 650px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1.5rem; }
+      .container-custom { padding: 0 1.2rem; }
+    }
+  </style>
 </head>
 <body>
-	<section id="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center" id="navbar_top">
-		  	<div class="container-fluid">
-			    <a class="navbar-brand" href="index.html">
-			    	<span>R</span>USTOM
-			    </a>
-			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			      	<i class="fa fa-bars"></i>
-			    </button>
-			    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-				    <div class="navbar-nav">
-					    <a class="nav-link" aria-current="page" href="index.html">Home</a>
-					    <a class="nav-link" href="#project-list">Projects</a>
-				    </div>
-			    </div>
-		  	</div>
-		</nav>
-	</section>
-	<section id="content-section">
-		<div class="container-fluid">
-			<div class="row top-content">
-				<div class="col-lg-4">
-					<div class="portfolio-image">
-						<img src="assets/img/profile-image.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-8">
-					<div class="content-intro">
-						<h1 class="introduction">About Me</h1>
-						<p class="description">
-							An Information Technology enthusiast seeking for a company that will improve my knowledge and skills for the benefit of the company and for myself. 
-							Equipped with necessary skills in web programming using PHP and HTML frameworks. 
-							Proficient in Microsoft Offices, has strong organizational, analytical and problem-solving skills. 
-							I developed the backend part of a website using Codeigniter 4 Framework and Javascript/ajax. 
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12 mt-4">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item" role="presentation">
-							<button class="nav-link active" id="skills-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><h3>SKILLS</h3></button>
-						</li>
-						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"><h3>EDUCATIONAL BACKGROUND</h3></button>
-						</li>
-						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><h3>EXPERIENCE</h3></button>
-						</li>
-					</ul>
-					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="skills-tab">
-							<div class="skills-background">
-								<div class="col-lg-12">
-									<ul>
-										<li>
-											<h3><b>AREAS OF EXPERTISE</b></h3>
-										</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Interpersonal skills</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Communication skills</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Time management skills</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> MS Office Literacy</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Computer Hardware & Software Troubleshooting</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Network Troubleshooting</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Basic Photoshop & Video Editing Skills</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Web-based programming using MVC PHP Codeigniter, Javascript, Ajax, HTML, and Bootstrap Framework</li>
-									</ul>
-								</div>
-								<div class="col-lg-12">
-									<ul>
-										<li>
-											<h3><b>OTHER SKILLS</b></h3>
-										</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Responsible and efficient</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Enthusiastic and dependable</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Demonstrate ability to remain calm when faced with crisis situations</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Compassionate to help</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Fast Learner</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Can work under time pressure</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Establishes good quality relationship to diverse group of people</li>
-										<li><i class="fa-solid fa-circle-chevron-right"></i> Willing to learn new skills and ideas</li>
-									</ul>
-								</div>
-							</div>							
-						</div>
-						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="education-tab">
-							<div class="education-background">
-								<div class="col-lg-12">
-									<ul>
-										<li>
-											<h3><b>EDUCATIONAL BACKGROUND</b></h3>
-										</li>
-										<li>
-											<strong>2016</strong> - SOUTHERN DE ORO PHILIPPINES COLLEGE<br>
-											Bachelor of Science in Information Technology<br>
-											Julio Pacana St. Cagayan de Oro City
-										</li>
-										<li>
-											<strong>2010</strong> - SAGAY NATIONAL HIGH SCHOOL<br>
-											Bonbon, Sagay, Camiguin
-										</li>
-										<li>
-											<strong>2007</strong> - BUGANG ELEMENTARY SCHOOL<br>
-											Bugang, Sagay, Camiguin
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="experience-tab">
-							<div class="experience-background">
-								<div class="col-lg-12">
-									<ul>
-										<li>
-											<h3><b>EXPERIENCES</b></h3>
-										</li>
-									</ul>                
-									<ul>
-										<li>
-											<strong>February 2022 – Present</strong><br>
-											Braveegg Internet Ideas Inc.
-											<ul>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Code the backend functionality of the website</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Manages the databases in our servers</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Upload website source codes in the shared hosting providers (Ex. Godaddy)</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Troubleshoot Wordpress backend concerns</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Troubleshoot hosting errors or network related errors</li>
-											</ul>
-										</li>
-										<li>
-											<strong>August 2018 – February 2022</strong><br>
-											IT Specialist, LCG Group of Companies
-											<ul>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Develop and maintain company web applications and official website</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Repair and troubleshoot computer hardware and software</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Install operating systems and applications in desktop and laptop</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Provide administrative support in Sophos restriction and internet access</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Troubleshoot networking errors</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Provide online support through Teamviewer or Anydesk application to company branches</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Monitor IT inventory purchases and deployment to a specific user</li>
-											</ul>
-										</li>
-										<li>
-											<strong>December 5, 2016 – August 5, 2018</strong><br>
-											MIS Associate, LCG Group of Companies
-											<ul>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Processes sales orders, purchase order, receiving report, transfer order, posting sales invoices and credit memos</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Generates and distributes management daily/monthly reports in accurate and timely manner</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Provides support and maintenance to existing management information systems</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Monitors system inventories, ensuring they are reconciled against actual inventories and suppliers system (if any)</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Pay-off Short/Over Remittances and DSRR Updating-Customers; New Items; New Code; Prices</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Divisions Handed: TBA, SUL CLOROX and OTC JNJ</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> System Used: Microsoft Dynamics Navision</li>
-											</ul>
-										</li>
-										<li>
-											<strong>August 8, 2016 – November 30, 2016</strong><br>
-											Computer Technician, Netopia, Digital Paradise Inc.
-											<ul>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Repair and troubleshoot computer hardware and software</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Troubleshoot networking errors</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Install operating system, applications in desktop/laptop and desktop cloning</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Inventory Monitoring</li>
-												<li><i class="fa-solid fa-circle-chevron-right"></i> Photo Editing (Image Quality Enhancement, Sizing and Photoshop)</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="project-list mt-4 mb-4" id="project-list">
-						<div class="row">
-							<h3 class="mb-4"><b>Projects</b></h3>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/pricemydoctor.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://pricemydoctor.com/"><b>PRICE MY DOCTOR</b></a></h5>
-										<p>
-											This website provides information about the costs associated with different medical procedures or services offered by doctors or healthcare providers
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/cfpickum.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://cfpickum.com/"><b>CFPICKUM</b></a></h5>
-										<p>
-											Overall, the object of CFPickum.com is likely to provide an engaging and interactive platform for college football fans to enhance their enjoyment of the sport through prediction contests, fantasy leagues, community interaction, and access to valuable resources and rewards.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/ilmaid.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://ilmaid.org/"><b>ILMAID</b></a></h5>
-										<p>
-											Overall, Ilmaid.org serves as a valuable online hub for empowering individuals to make informed choices, take meaningful action, and contribute to a more sustainable and environmentally conscious world.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/rambhakts.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://rambhakts.com/"><b>RAMBHAKTS</b></a></h5>
-										<p>
-											Rambhakts.com is to provide individuals with a platform to showcase themselves, connect with others, and leverage their online presence for personal and professional growth, while also offering opportunities for monetization and community engagement.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/epic.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://epicstoragehpu.com/"><b>EPIC STORAGE SOLUTIONS</b></a></h5>
-										<p>
-											EPIC Storage Solutions aims to fulfill the specific storage needs of High Point University students and parents by offering a convenient, accountable, and safe dorm-to-dorm storage solution, thereby enhancing the overall student experience and easing the transition between academic terms.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/tca.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://www.tcadviser.com.au/"><b>TCA</b></a></h5>
-										<p>
-											the object of TC Adviser is to serve as a trusted advisor and advocate for individuals and businesses involved in building and construction projects, helping them navigate the complexities of the industry and achieve successful outcomes while protecting their interests.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/halifax.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://halifaxflooring.com/"><b>HALIFAX FLOORING</b></a></h5>
-										<p>
-											Halifax Flooring revolve around providing high-quality flooring solutions, delivering exceptional customer service, offering professional installation services, maintaining competitive pricing, providing expert advice and guidance, ensuring customer satisfaction, and promoting sustainability and environmental responsibility in the flooring industry.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<img src="assets/img/donvi.png" class="card-img-top" alt="Education Background Image">
-									<div class="card-body">
-										<h5 class="card-title"><a href="https://donvi.com.au/"><b>DONVI CLEANING</b></a></h5>
-										<p>
-											Donvi Cleaning are centered around providing exceptional cleaning services, tailored solutions, and outstanding customer satisfaction while upholding high standards of professionalism, integrity, and environmental responsibility.
-										</p>
-										<p style="font-weight: bold;">Completed Under: <a href="https://riftofheroes.com/"><i class="fa fa-heart"></i> Rift of Heroes</a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<footer class="text-center text-lg-start bg-light text-muted">
-	  	<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-		    <div class="me-5 d-none d-lg-block">
-		      	<span>Get connected with me on social networks:</span>
-		    </div>
-	    	<div>
-		      	<a href="" class="me-4 text-reset">
-		        	<i class="fab fa-facebook-f"></i>
-		      	</a>
-		      	<a href="" class="me-4 text-reset">
-		        	<i class="fab fa-linkedin"></i>
-		      	</a>
-	    	</div>
-	  </section>
-	  <section class="">
-	    	<div class="container text-center text-md-start mt-5">
-	      		<div class="row mt-3">
-		        	<div class="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4">
-		          		<h6 class="text-uppercase fw-bold mb-4">
-		            		Navigation Links
-		          		</h6>
-		          		<p>
-		            		<a href="index.html" class="text-reset">Home</a>
-		          		</p>
-		          		<p>
-		            		<a href="projects.html" class="text-reset">Projects</a>
-		          		</p>
-		        	</div>
-		        	<div class="col-md-6 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-		          		<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-		          		<p><i class="fas fa-home me-3"></i> Macabalan Piaping-Itum, Cagayan de Oro City, Misamis Oriental 9000</p>
-		          		<p>
-		            		<i class="fas fa-envelope me-3"></i>
-		            		rustomcodilan@gmail.com
-		          		</p>
-		          		<p><i class="fas fa-phone me-3"></i> + 63 997 530 4890</p>
-		        	</div>
-	      		</div>
-	    	</div>
-	  	</section>
-	  	<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-	    	&copy; 2024 Copyright:
-	    	<a class="text-reset fw-bold" href="#">My Project Portfolio</a>
-	  	</div>
-	</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-  	<script type="text/javascript" src="assets/js/script.js"></script>
-  	<script type="text/javascript" src="assets/js/images-grid.js"></script>
+
+<nav class="navbar-modern" id="mainNav">
+  <div class="container-custom">
+    <a href="#" class="logo">RUSTOM</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="container-custom hero-grid">
+    <div>
+      <h1 class="hero-name">
+        <span class="smaller">RUSTOM</span> CODILAN
+      </h1>
+      <div class="hero-tagline">
+        Backend Architect · IT strategist · Systems thinker
+      </div>
+      <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 550px;">
+        I design and build robust web systems with PHP (Codeigniter), JavaScript, 
+        and a calm analytical mindset. 8+ years in development and infrastructure.
+      </p>
+      <a href="#projects" class="btn-accent">
+        View work <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="hero-image">
+      <img src="assets/img/profile-image.png" alt="Rustom Codilan" onerror="this.src='https://placehold.co/800x1000/1e1e24/ffb347?text=RUSTOM'">
+    </div>
+  </div>
+</section>
+
+<div class="container-custom">
+  <div class="info-grid">
+    <!-- Expertise card -->
+    <div class="info-card">
+      <div class="icon-circle"><i class="fa-solid fa-code"></i></div>
+      <h3>expertise</h3>
+      <ul class="info-list">
+        <li><i class="fa-regular fa-circle-check"></i> <strong>PHP Codeigniter 4 / MVC</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> JavaScript (ES6), Ajax, Bootstrap</li>
+        <li><i class="fa-regular fa-circle-check"></i> MySQL · database architecture</li>
+        <li><i class="fa-regular fa-circle-check"></i> Network & hardware troubleshooting</li>
+        <li><i class="fa-regular fa-circle-check"></i> WordPress / cPanel / GoDaddy</li>
+        <li><i class="fa-regular fa-circle-check"></i> Photoshop / video basics</li>
+      </ul>
+    </div>
+    <!-- Education card -->
+    <div class="info-card">
+      <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h3>education</h3>
+      <ul class="info-list">
+        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill"><i class="fa-regular fa-circle-check" style="font-size:0.8rem;"></i> 2016</span> <strong>BS Info Tech</strong> – Southern de Oro Philippines College</li>
+        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill">2010</span> Sagay National High School</li>
+        <li><i class="fa-regular fa-calendar"></i> <span class="date-pill">2007</span> Bugang Elementary School</li>
+      </ul>
+    </div>
+    <!-- Track record card -->
+    <div class="info-card">
+      <div class="icon-circle"><i class="fa-solid fa-briefcase"></i></div>
+      <h3>track record</h3>
+      <ul class="info-list">
+        <li><i class="fa-regular fa-building"></i> <strong>Braveegg Internet</strong> – Backend Dev (2022–Present)</li>
+        <li><i class="fa-regular fa-building"></i> <strong>LCG Group (IT Specialist)</strong> – 2018–2022</li>
+        <li><i class="fa-regular fa-building"></i> <strong>MIS Associate, LCG</strong> – 2016–2018</li>
+        <li><i class="fa-regular fa-building"></i> <strong>Computer Technician, Netopia</strong> – 2016</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="projects" class="projects-section container-custom">
+  <h2 class="section-title"><span>SELECTED</span> PROJECTS</h2>
+  <div class="projects-grid">
+    <!-- all 8 project cards with circle hearts -->
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/pricemydoctor.png" alt="Price My Doctor" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=PMD'"></div>
+      <div class="project-content">
+        <h4><a href="https://pricemydoctor.com/" target="_blank">PRICE MY DOCTOR</a></h4>
+        <p>Medical cost transparency platform.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+          <span>backend</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/cfpickum.png" alt="CFPickum" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=CF'"></div>
+      <div class="project-content">
+        <h4><a href="https://cfpickum.com/" target="_blank">CFPICKUM</a></h4>
+        <p>College football prediction league.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/ilmaid.png" alt="ILMAID" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=ILMAID'"></div>
+      <div class="project-content">
+        <h4><a href="https://ilmaid.org/" target="_blank">ILMAID</a></h4>
+        <p>Sustainability action hub.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/rambhakts.png" alt="RAMBHAKTS" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=RAM'"></div>
+      <div class="project-content">
+        <h4><a href="https://rambhakts.com/" target="_blank">RAMBHAKTS</a></h4>
+        <p>Community monetization.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/epic.png" alt="Epic Storage" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=EPIC'"></div>
+      <div class="project-content">
+        <h4><a href="https://epicstoragehpu.com/" target="_blank">EPIC STORAGE</a></h4>
+        <p>Dorm storage for High Point University.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/tca.png" alt="TC Adviser" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=TCA'"></div>
+      <div class="project-content">
+        <h4><a href="https://www.tcadviser.com.au/" target="_blank">TCA</a></h4>
+        <p>Construction & building advisory.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/halifax.png" alt="Halifax Flooring" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=HF'"></div>
+      <div class="project-content">
+        <h4><a href="https://halifaxflooring.com/" target="_blank">HALIFAX FLOORING</a></h4>
+        <p>Premium sustainable flooring.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img"><img src="assets/img/donvi.png" alt="Donvi Cleaning" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=DONVI'"></div>
+      <div class="project-content">
+        <h4><a href="https://donvi.com.au/" target="_blank">DONVI CLEANING</a></h4>
+        <p>Integrity‑first cleaning services.</p>
+        <div class="project-footer">
+          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-modern" id="contact">
+  <div class="container-custom">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo">RUSTOM</div>
+        <p>Building robust, human‑centered web solutions. Let’s connect.</p>
+        <div class="social-circle">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="contact-item"><i class="fa-regular fa-envelope"></i> rustomcodilan@gmail.com</div>
+        <div class="contact-item"><i class="fa-regular fa-address-card"></i> +63 997 530 4890</div>
+        <div class="contact-item"><i class="fa-regular fa-building"></i> Macabalan, Cagayan de Oro</div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Rustom Codilan _ All Rights Received
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+<script src="assets/js/images-grid.js"></script>
 </body>
 </html>
