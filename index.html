@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Rustom Codilan – Senior backend architect & IT strategist. Dark, executive portfolio.">
-  <title>Rustom Codilan · executive dark</title>
-  <!-- Bootstrap 5 + icons + modern fonts -->
+  <title>Rustom Codilan · Executive Portfolio</title>
+  
+  <!-- Bootstrap 5 + Icons + Modern Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <!-- Clear, legible font stack: Inter (sans) + Space Grotesk for headings -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
+    /* ----------------------------------------------
+       GLOBAL DESIGN SYSTEM (Organized & Enhanced)
+    ------------------------------------------------ */
     * {
       margin: 0;
       padding: 0;
@@ -20,99 +22,119 @@
     }
 
     :root {
-      /* Dark palette – deep, elegant, high readability */
-      --bg-dark: #0e0e10;
-      --bg-surface: #17171a;
-      --bg-card: #1e1e24;
-      --bg-elevated: #26262e;
-      --text-light: #f0f0f2;
-      --text-muted: #b0b3b8;
-      --text-dim: #8a8f99;
-      --accent-primary: #f97316;      /* warm orange – clear contrast */
+      /* Dark Palette – refined */
+      --bg-dark: #0a0a0c;
+      --bg-surface: #121215;
+      --bg-card: #18181e;
+      --bg-elevated: #22222a;
+      --text-primary: #f5f5f7;
+      --text-secondary: #b0b3bc;
+      --text-muted: #7a7f8a;
+      --accent-primary: #f97316;
       --accent-secondary: #ffb347;
+      --accent-glow: rgba(249, 115, 22, 0.25);
       --accent-gradient: linear-gradient(135deg, #f97316, #ffb347);
-      --border-dim: #2c2c34;
-      --shadow-soft: 0 15px 35px -10px rgba(0,0,0,0.7);
-      --shadow-hover: 0 25px 40px -12px rgba(249,115,22,0.25);
-      --radius-xl: 36px;
-      --radius-lg: 28px;
-      --radius-md: 20px;
-      --radius-sm: 14px;
-      --transition: all 0.25s cubic-bezier(0.3,0,0,1);
+      --border-dim: #2a2a32;
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+      --shadow-lg: 0 25px 45px -12px rgba(249, 115, 22, 0.2);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: all 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
     }
 
     body {
       font-family: 'Jura', sans-serif;
       background-color: var(--bg-dark);
-      color: var(--text-light);
+      color: var(--text-primary);
       line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
     }
 
+    /* Typography System */
     h1, h2, h3, h4, .heading-font {
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
+    /* Custom Container */
     .container-custom {
       max-width: 1300px;
       margin: 0 auto;
-      padding: 0 2.5rem;
+      padding: 0 2rem;
     }
 
-    /* ----- glass navbar (dark, subtle) ----- */
+    /* ========== NAVBAR (Enhanced with glassmorphism) ========== */
     .navbar-modern {
-      padding: 1.2rem 0;
+      padding: 1rem 0;
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 100;
-      transition: var(--transition);
-      background: rgba(10, 10, 15, 0.7);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      z-index: 1000;
+      transition: var(--transition-fast);
+      background: rgba(10, 10, 12, 0.6);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .navbar-modern.scrolled {
-      background: rgba(20, 20, 25, 0.85);
+      background: rgba(12, 12, 16, 0.9);
       backdrop-filter: blur(20px);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.5);
+      border-bottom-color: rgba(249, 115, 22, 0.2);
     }
     .navbar-modern .container-custom {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
     .logo {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 800;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: -0.03em;
+      transition: var(--transition-fast);
+    }
+    .logo:hover {
+      color: var(--accent-gradient);
     }
     .nav-links {
       display: flex;
-      gap: 3rem;
+      gap: 2.8rem;
     }
     .nav-links a {
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-      transition: 0.2s;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      position: relative;
+      padding-bottom: 6px;
+      transition: var(--transition-fast);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.25s ease;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
     .nav-links a:hover {
-      color: var(--text-light);
-      border-bottom-color: var(--accent-primary);
+      color: var(--text-primary);
     }
 
-    /* ----- HERO section (high contrast) ----- */
+    /* ========== HERO SECTION (refined layout) ========== */
     .hero {
       min-height: 90vh;
       display: flex;
@@ -121,162 +143,165 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
       align-items: center;
     }
-    .hero-name {
-      font-size: 4.5rem;
-      font-weight: 700;
-      line-height: 1;
+    .hero-badge {
+      display: inline-block;
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      border-radius: 100px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-secondary);
       margin-bottom: 1.5rem;
-      color: var(--text-light);
+      letter-spacing: 0.5px;
     }
-    .hero-name .smaller {
-      font-size: 2.8rem;
-      font-weight: 400;
+    .hero-name {
+      font-size: 4.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero-name .first-name {
       display: block;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
     }
     .hero-tagline {
       font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin: 1.5rem 0 1.8rem;
+      border-left: 4px solid var(--accent-primary);
+      padding-left: 1.5rem;
+      font-weight: 500;
+    }
+    .hero-description {
+      font-size: 1rem;
       color: var(--text-muted);
-      margin: 1.8rem 0 2.2rem;
-      border-left: 6px solid var(--accent-primary);
-      padding-left: 2rem;
-      font-weight: 400;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .btn-accent {
+      background: var(--accent-gradient);
+      border: none;
+      color: #0a0a0c;
+      padding: 0.9rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
+      transition: var(--transition-bounce);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .btn-accent:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -8px #f97316;
+      color: #000;
     }
     .hero-image {
       border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition);
-      background: var(--bg-elevated);
+      box-shadow: var(--shadow-md);
       border: 1px solid var(--border-dim);
-      aspect-ratio: 4/5;
+      transition: var(--transition-bounce);
+      background: var(--bg-elevated);
     }
     .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.95;
-      transition: transform 0.6s;
+      display: block;
+      transition: transform 0.5s ease;
     }
     .hero-image:hover img {
-      transform: scale(1.02);
-    }
-    .btn-accent {
-      background: var(--accent-gradient);
-      border: none;
-      color: #0e0e10;
-      padding: 1rem 2.8rem;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 15px 25px -8px rgba(249,115,22,0.3);
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-    .btn-accent i {
-      transition: transform 0.2s;
-    }
-    .btn-accent:hover {
-      box-shadow: 0 20px 30px -8px #f97316;
-      transform: translateY(-4px);
-    }
-    .btn-accent:hover i {
-      transform: translateX(6px);
+      transform: scale(1.03);
     }
 
-    /* ----- INFO CARDS (dark surface, circular icons) ----- */
+    /* ========== INFO CARDS (modular & consistent) ========== */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      margin: 5rem 0;
+      margin: 4rem 0;
     }
     .info-card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
-      padding: 2.5rem 2rem;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition);
+      padding: 2.2rem 1.8rem;
+      transition: var(--transition-bounce);
       border: 1px solid var(--border-dim);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(4px);
     }
     .info-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: #f9731640;
+      transform: translateY(-6px);
+      border-color: rgba(249, 115, 22, 0.5);
+      box-shadow: var(--shadow-lg);
     }
     .icon-circle {
-      width: 68px;
-      height: 68px;
+      width: 70px;
+      height: 70px;
       background: var(--accent-gradient);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 18px -6px rgba(249,115,22,0.5);
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
     }
     .icon-circle i {
-      font-size: 2.2rem;
-      color: #0e0e10;
+      font-size: 2rem;
+      color: #0a0a0c;
     }
     .info-card h3 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 1.9rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
-      border-bottom: 3px solid var(--accent-primary);
-      display: inline-block;
-      padding-bottom: 0.2rem;
-      color: var(--text-light);
+      border-left: 4px solid var(--accent-primary);
+      padding-left: 1rem;
     }
     .info-list {
       list-style: none;
     }
     .info-list li {
-      margin-bottom: 1rem;
-      color: var(--text-muted);
+      margin-bottom: 1.2rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      font-size: 1.05rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
     }
     .info-list li i {
       color: var(--accent-primary);
-      font-size: 1.2rem;
-      min-width: 1.6rem;
-      margin-top: 0.1rem;
-    }
-    .info-list strong {
-      color: var(--text-light);
-      font-weight: 600;
+      width: 1.4rem;
     }
     .date-pill {
-      background: #2c2c36;
-      border-radius: 40px;
-      padding: 0.2rem 1.2rem 0.2rem 1rem;
-      font-size: 0.9rem;
+      background: #23232b;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      color: var(--text-muted);
+      gap: 0.3rem;
     }
 
-    /* ----- PROJECT GRID (dark, clean, circles for heart) ----- */
+    /* ========== PROJECTS SECTION (clean & elevated) ========== */
     .projects-section {
-      padding: 4rem 0 6rem;
+      padding: 3rem 0 6rem;
     }
     .section-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      color: var(--text-light);
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
     }
     .section-title span {
       background: var(--accent-gradient);
@@ -286,26 +311,25 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
     }
     .project-card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition);
+      transition: var(--transition-bounce);
       border: 1px solid var(--border-dim);
       display: flex;
       flex-direction: column;
     }
     .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: var(--shadow-hover);
-      border-color: #f9731640;
+      transform: translateY(-8px);
+      border-color: rgba(249, 115, 22, 0.5);
+      box-shadow: var(--shadow-lg);
     }
     .project-img {
-      height: 210px;
+      height: 200px;
       overflow: hidden;
       background: var(--bg-elevated);
     }
@@ -313,21 +337,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.9;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
     }
     .project-card:hover .project-img img {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
     .project-content {
-      padding: 1.8rem 1.8rem 2rem;
+      padding: 1.6rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
     .project-content h4 {
-      font-size: 1.6rem;
-      font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 700;
       margin-bottom: 0.6rem;
     }
     .project-content h4 a {
@@ -335,345 +358,333 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      transition: opacity 0.2s;
     }
     .project-content p {
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.98rem;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
     }
     .project-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid var(--border-dim);
-      padding-top: 1.2rem;
+      padding-top: 1rem;
       margin-top: auto;
     }
     .project-footer a {
       font-weight: 600;
       color: var(--accent-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      font-size: 0.85rem;
     }
     .heart-circle {
-      width: 36px;
-      height: 36px;
-      background: #2f2f3a;
+      width: 34px;
+      height: 34px;
+      background: #26262e;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-primary);
-      transition: 0.2s;
+      transition: var(--transition-fast);
     }
     .project-card:hover .heart-circle {
       background: var(--accent-primary);
-      color: #0e0e10;
-    }
-    .project-footer span {
-      color: var(--text-dim);
+      color: #0a0a0c;
     }
 
-    /* ----- FOOTER (dark deep) ----- */
+    /* ========== FOOTER (elevated dark) ========== */
     .footer-modern {
-      background: #0a0a0c;
-      color: #ddd;
+      background: #060608;
       border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-      padding: 5rem 0 2.5rem;
+      padding: 4rem 0 2rem;
       margin-top: 4rem;
-      border-top: 1px solid #24242a;
+      border-top: 1px solid #1c1c22;
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1.5fr;
-      gap: 3.5rem;
+      gap: 3rem;
     }
     .footer-col .logo {
-      background: none;
-      -webkit-background-clip: unset;
-      color: white;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      display: inline-block;
     }
     .footer-col p {
-      color: var(--text-dim);
-      margin: 1.2rem 0 2rem;
+      color: var(--text-muted);
+      margin: 1rem 0 1.8rem;
+      font-size: 0.9rem;
     }
     .social-circle {
       display: flex;
       gap: 1rem;
     }
     .social-circle a {
-      width: 48px;
-      height: 48px;
-      background: #1e1e26;
+      width: 44px;
+      height: 44px;
+      background: #1a1a22;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f0f0f2;
-      font-size: 1.5rem;
-      transition: 0.2s;
-      border: 1px solid #33333d;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      border: 1px solid #2c2c34;
     }
     .social-circle a:hover {
       background: var(--accent-primary);
-      color: #0e0e10;
+      color: #0a0a0c;
       transform: translateY(-4px);
       border-color: transparent;
     }
     .footer-col h5 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
       color: white;
     }
     .footer-links a {
       display: block;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-      transition: color 0.2s;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      transition: var(--transition-fast);
     }
     .footer-links a:hover {
-      color: white;
+      color: var(--accent-primary);
+      transform: translateX(4px);
     }
     .contact-item {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1.5rem;
-      color: #ccc;
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
     .contact-item i {
-      width: 44px;
-      height: 44px;
-      background: #1e1e26;
+      width: 40px;
+      height: 40px;
+      background: #1a1a22;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--accent-primary);
-      font-size: 1.2rem;
-      border: 1px solid #33333d;
+      font-size: 1rem;
+      border: 1px solid #2c2c34;
     }
     .copyright {
       text-align: center;
-      color: #5a5a66;
-      border-top: 1px solid #24242a;
-      padding-top: 2.5rem;
-      margin-top: 3.5rem;
+      color: #4a4a55;
+      border-top: 1px solid #1c1c22;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      font-size: 0.8rem;
     }
 
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 1000px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .info-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-name { font-size: 3.8rem; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-tagline { border-left: none; padding-left: 0; text-align: center; }
+      .hero-description { margin-left: auto; margin-right: auto; }
+      .info-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-name { font-size: 3.5rem; }
     }
-    @media (max-width: 650px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .nav-links { gap: 1.5rem; }
+    @media (max-width: 768px) {
       .container-custom { padding: 0 1.2rem; }
+      .nav-links { gap: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 2.5rem; }
     }
-    .info-list li {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
+    @media (max-width: 480px) {
+      .navbar-modern .container-custom { flex-direction: column; gap: 0.8rem; }
+      .hero-name { font-size: 2.8rem; }
+      .btn-accent { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
     }
 
-    .info-list li .date-pill {
-      margin-bottom: 0.25rem;
+    /* Accessibility & utilities */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    ::selection {
+      background: var(--accent-primary);
+      color: #0a0a0c;
     }
   </style>
 </head>
 <body>
 
+<!-- MODERN NAVBAR -->
 <nav class="navbar-modern" id="mainNav">
   <div class="container-custom">
-    <a href="#" class="logo">RUSTOM</a>
+    <a href="#" class="logo text-decoration-none">RUSTOM</a>
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO SECTION -->
 <section id="home" class="hero">
   <div class="container-custom hero-grid">
     <div>
+      <div class="hero-badge">
+        <i class="fa-regular fa-star"></i> Web Developer
+      </div>
       <h1 class="hero-name">
-        <span class="smaller">RUSTOM</span> CODILAN
+        <span class="first-name">RUSTOM</span> CODILAN
       </h1>
       <div class="hero-tagline">
-        Backend Architect · IT strategist · Systems thinker
+        Backend Architect · IT Strategist · Systems Thinker
       </div>
-      <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 550px;">
+      <p class="hero-description">
         I design and build robust web systems with PHP (Codeigniter), JavaScript, 
         and a calm analytical mindset. 8+ years in development and infrastructure.
       </p>
       <a href="#projects" class="btn-accent">
-        View work <i class="fa-solid fa-arrow-right"></i>
+        Explore Work <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
     <div class="hero-image">
-      <img src="assets/img/profile-image.png" alt="Rustom Codilan" onerror="this.src='https://placehold.co/800x1000/1e1e24/ffb347?text=RUSTOM'">
+      <img src="assets/img/profile-image.png" alt="Rustom Codilan" onerror="this.src='https://placehold.co/800x1000/18181e/f97316?text=R+C'">
     </div>
   </div>
 </section>
 
 <div class="container-custom">
+  <!-- INFO CARDS: Expertise, Education, Track Record (Structured) -->
   <div class="info-grid">
-    <!-- Expertise card -->
+    <!-- Expertise Card -->
     <div class="info-card">
-      <div class="icon-circle"><i class="fa-solid fa-code"></i></div>
-      <h3>Expertise</h3>
+      <div class="icon-circle"><i class="fa-solid fa-microchip"></i></div>
+      <h3>Core Stack</h3>
       <ul class="info-list">
-        <li><strong><i class="fa-regular fa-circle-check"></i> PHP Codeigniter 4 / MVC</strong></li>
-        <li><strong><i class="fa-regular fa-circle-check"></i> JavaScript (ES6), Ajax, Bootstrap</strong></li>
-        <li><strong><i class="fa-regular fa-circle-check"></i> MySQL · database architecture</strong></li>
-        <li><strong><i class="fa-regular fa-circle-check"></i> Network & hardware troubleshooting</strong></li>
-        <li><strong><i class="fa-regular fa-circle-check"></i> WordPress / cPanel / GoDaddy</strong></li>
-        <li><strong><i class="fa-regular fa-circle-check"></i> Photoshop / video basics</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>PHP · CodeIgniter 4 / MVC</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>JavaScript · Ajax · Bootstrap</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>MySQL · Database Architecture</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>Network & Hardware Troubleshooting</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>WordPress · cPanel · GoDaddy</strong></li>
+        <li><i class="fa-regular fa-circle-check"></i> <strong>Photoshop / Video Production</strong></li>
       </ul>
     </div>
-    <!-- Education card -->
+    <!-- Education Card -->
     <div class="info-card">
       <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
       <h3>Education</h3>
       <ul class="info-list">
-        <li>
-          <span class="date-pill"><i class="fa-regular fa-calendar"></i> <i class="fa-regular fa-circle-check" style="font-size:0.8rem;"></i> 2016</span>
-          <div style="margin-top: 0.5rem;"><strong>BS Info Tech</strong> – Southern de Oro Philippines College</div>
-        </li>
-        <li>
-          <span class="date-pill"><i class="fa-regular fa-calendar"></i> 2010</span>
-          <div style="margin-top: 0.5rem;">Sagay National High School</div>
-        </li>
-        <li>
-          <span class="date-pill"><i class="fa-regular fa-calendar"></i> 2007</span>
-          <div style="margin-top: 0.5rem;">Bugang Elementary School</div>
-        </li>
+        <li><span class="date-pill"><i class="fa-regular fa-calendar"></i> 2016</span> <strong>BS Info Tech</strong><br>Southern de Oro Philippines College</li>
+        <li><span class="date-pill"><i class="fa-regular fa-calendar"></i> 2010</span> Sagay National High School</li>
+        <li><span class="date-pill"><i class="fa-regular fa-calendar"></i> 2007</span> Bugang Elementary School</li>
       </ul>
     </div>
-    <!-- Track record card -->
+    <!-- Track Record Card -->
     <div class="info-card">
       <div class="icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-      <h3>Track Record</h3>
+      <h3>Experience</h3>
       <ul class="info-list">
-        <li><strong><i class="fa-regular fa-building"></i> Braveegg Internet</strong> – Backend Dev (2022–Present)</li>
-        <li><strong><i class="fa-regular fa-building"></i> LCG Group (IT Specialist)</strong> – 2018–2022</li>
-        <li><strong><i class="fa-regular fa-building"></i> MIS Associate, LCG</strong> – 2016–2018</li>
-        <li><strong><i class="fa-regular fa-building"></i> Computer Technician, Netopia</strong> – 2016</li>
+        <li><i class="fa-regular fa-building"></i> <strong>Braveegg Internet</strong> – Backend Dev (2022–Present)</li>
+        <li><i class="fa-regular fa-building"></i> <strong>LCG Group</strong> – IT Specialist (2018–2022)</li>
+        <li><i class="fa-regular fa-building"></i> <strong>LCG Group</strong> – MIS Associate (2016–2018)</li>
+        <li><i class="fa-regular fa-building"></i> <strong>Netopia</strong> – Computer Technician (2016)</li>
       </ul>
     </div>
   </div>
 </div>
 
+<!-- PROJECTS SECTION (clean & dynamic) -->
 <section id="projects" class="projects-section container-custom">
-  <h2 class="section-title"><span>SELECTED</span> PROJECTS</h2>
+  <h2 class="section-title"><span>✦ SELECTED</span> PROJECTS</h2>
   <div class="projects-grid">
-    <!-- all 8 project cards with circle hearts -->
+    <!-- Each project uses enhanced semantic structure -->
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/pricemydoctor.png" alt="Price My Doctor" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=PMD'"></div>
+      <div class="project-img"><img src="assets/img/pricemydoctor.png" alt="Price My Doctor" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=PMD'"></div>
       <div class="project-content">
         <h4><a href="https://pricemydoctor.com/" target="_blank">PRICE MY DOCTOR</a></h4>
         <p>Medical cost transparency platform.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-          <span>backend</span>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a><span>backend</span></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/cfpickum.png" alt="CFPickum" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=CF'"></div>
+      <div class="project-img"><img src="assets/img/cfpickum.png" alt="CFPickum" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=CF'"></div>
       <div class="project-content">
         <h4><a href="https://cfpickum.com/" target="_blank">CFPICKUM</a></h4>
         <p>College football prediction league.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/ilmaid.png" alt="ILMAID" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=ILMAID'"></div>
+      <div class="project-img"><img src="assets/img/ilmaid.png" alt="ILMAID" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=ILMAID'"></div>
       <div class="project-content">
         <h4><a href="https://ilmaid.org/" target="_blank">ILMAID</a></h4>
         <p>Sustainability action hub.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/rambhakts.png" alt="RAMBHAKTS" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=RAM'"></div>
+      <div class="project-img"><img src="assets/img/rambhakts.png" alt="RAMBHAKTS" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=RAM'"></div>
       <div class="project-content">
         <h4><a href="https://rambhakts.com/" target="_blank">RAMBHAKTS</a></h4>
-        <p>Community monetization.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <p>Community monetization platform.</p>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/epic.png" alt="Epic Storage" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=EPIC'"></div>
+      <div class="project-img"><img src="assets/img/epic.png" alt="Epic Storage" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=EPIC'"></div>
       <div class="project-content">
         <h4><a href="https://epicstoragehpu.com/" target="_blank">EPIC STORAGE</a></h4>
         <p>Dorm storage for High Point University.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/tca.png" alt="TC Adviser" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=TCA'"></div>
+      <div class="project-img"><img src="assets/img/tca.png" alt="TC Adviser" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=TCA'"></div>
       <div class="project-content">
-        <h4><a href="https://www.tcadviser.com.au/" target="_blank">TCA</a></h4>
+        <h4><a href="https://www.tcadviser.com.au/" target="_blank">TCA ADVISER</a></h4>
         <p>Construction & building advisory.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/halifax.png" alt="Halifax Flooring" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=HF'"></div>
+      <div class="project-img"><img src="assets/img/halifax.png" alt="Halifax Flooring" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=HF'"></div>
       <div class="project-content">
         <h4><a href="https://halifaxflooring.com/" target="_blank">HALIFAX FLOORING</a></h4>
         <p>Premium sustainable flooring.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
     <div class="project-card">
-      <div class="project-img"><img src="assets/img/donvi.png" alt="Donvi Cleaning" onerror="this.src='https://placehold.co/600x400/26262e/ffb347?text=DONVI'"></div>
+      <div class="project-img"><img src="assets/img/donvi.png" alt="Donvi Cleaning" onerror="this.src='https://placehold.co/600x400/22222a/f97316?text=DONVI'"></div>
       <div class="project-content">
         <h4><a href="https://donvi.com.au/" target="_blank">DONVI CLEANING</a></h4>
         <p>Integrity‑first cleaning services.</p>
-        <div class="project-footer">
-          <a href="https://riftofheroes.com/"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a>
-        </div>
+        <div class="project-footer"><a href="https://riftofheroes.com/" target="_blank"><span class="heart-circle"><i class="fa fa-heart"></i></span> Rift of Heroes</a></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER SECTION -->
 <footer class="footer-modern" id="contact">
   <div class="container-custom">
     <div class="footer-grid">
       <div class="footer-col">
         <div class="logo">RUSTOM</div>
-        <p>Building robust, human‑centered web solutions. Let’s connect.</p>
+        <p>Building robust, human‑centered web solutions. Let’s connect and create impact.</p>
         <div class="social-circle">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -685,31 +696,68 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h5>Connect</h5>
         <div class="contact-item"><i class="fa-regular fa-envelope"></i> rustomcodilan@gmail.com</div>
         <div class="contact-item"><i class="fa-regular fa-address-card"></i> +63 997 530 4890</div>
-        <div class="contact-item"><i class="fa-regular fa-building"></i> Macabalan, Cagayan de Oro</div>
+        <div class="contact-item"><i class="fa-regular fa-building"></i> Macabalan Piaping itum, Cagayan de Oro, Misamis Oriental 9000, Philippines</div>
       </div>
     </div>
     <div class="copyright">
-      © 2025 Rustom Codilan – All Rights Received
+      © 2025 Rustom Codilan – All Rights Reserved. Executive Portfolio.
     </div>
   </div>
 </footer>
 
+<!-- Scripts: enhanced interaction + smooth scroll + active nav -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === "#" || href === "") return;
-      const target = document.querySelector(href);
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  (function() {
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
     });
-  });
+
+    // Smooth scroll for anchor links & active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    function updateActiveLink() {
+      let current = '';
+      const scrollPos = window.scrollY + 120;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1);
+        if (href === current) link.classList.add('active');
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('load', updateActiveLink);
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, href);
+          updateActiveLink();
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
