@@ -451,6 +451,19 @@
         .back-top:hover { transform:translateY(-4px) scale(1.08); }
 
         /* ─── RESPONSIVE ─────────────────────────────────────── */
+
+        /* Navbar crowding fix: shrink gaps at mid widths */
+        @media(max-width:1100px){
+            .nav-links { gap:1.6rem; }
+            .nav-links a { font-size:.82rem; }
+            .nav-cta { padding:.48rem 1rem; font-size:.78rem; }
+            .nav-logo { font-size:1.45rem; }
+        }
+        @media(max-width:940px){
+            .nav-links { gap:1.1rem; }
+            .nav-links a { font-size:.78rem; }
+            .nav-cta { display:none; }
+        }
         @media(max-width:1024px){
             .hero-grid { grid-template-columns:1fr; }
             .hero-name { font-size:3.8rem; }
@@ -463,16 +476,19 @@
         }
         @media(max-width:768px){
             .wrap { padding:0 1.2rem; }
-            .nav-links { gap:1.4rem; }
-            .nav-cta { display:none; }
+            .nav-links { gap:1rem; }
             .hero-name { font-size:3rem; }
             .section-title { font-size:2.3rem; }
             .projects-grid { grid-template-columns:1fr; }
             .form-row { grid-template-columns:1fr; }
         }
+        @media(max-width:600px){
+            .navbar .wrap { flex-wrap:wrap; gap:.4rem; justify-content:space-between; }
+            .nav-links { order:3; width:100%; gap:.9rem; justify-content:center; flex-wrap:wrap; padding:.4rem 0 .2rem; border-top:1px solid rgba(255,255,255,.07); }
+            .nav-links a { font-size:.78rem; }
+        }
         @media(max-width:480px){
             .hero-name { font-size:2.5rem; }
-            .navbar .wrap { flex-wrap:wrap; gap:.5rem; }
             .stats-grid { grid-template-columns:1fr 1fr; }
         }
     </style>
@@ -968,31 +984,53 @@
             </div>
             <div class="reveal-right">
                 <div class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" placeholder="John" />
+                    <!--
+                        FORMSPREE SETUP (3 easy steps):
+                        1. Go to https://formspree.io and create a free account
+                        2. Create a new form — copy your unique endpoint URL
+                        3. Replace YOUR_FORM_ID below with that URL, e.g.:
+                           action="https://formspree.io/f/xabc1234"
+                    -->
+                    <form id="contactForm" action="https://formspree.io/f/mwvjzdod" method="POST" novalidate>
+
+                        <!-- Formspree: redirect back to your page after submit -->
+                        <input type="hidden" name="_next" value="" id="nextInput" />
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="first_name" class="form-control" placeholder="John" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="last_name" class="form-control" placeholder="Doe" required />
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" placeholder="Doe" />
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control" placeholder="john@example.com" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Subject</label>
-                        <input type="text" class="form-control" placeholder="Project Inquiry" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Message</label>
-                        <textarea class="form-control" placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button type="button" class="btn-primary" id="sendBtn" style="width:100%;justify-content:center;" onclick="handleSend(this)">
-                        Send Message <i class="fa-solid fa-paper-plane"></i>
-                    </button>
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Inquiry" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+
+                        <!-- Status messages -->
+                        <div id="formSuccess" style="display:none;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1rem;color:#4ade80;font-size:.9rem;">
+                            <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+                        </div>
+                        <div id="formError" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1rem;color:#f87171;font-size:.9rem;">
+                            <i class="fa-solid fa-circle-xmark"></i> Something went wrong. Please try again or email me directly.
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="sendBtn" style="width:100%;justify-content:center;">
+                            Send Message <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1099,15 +1137,72 @@
     }, { threshold: 0.3 });
     skillFills.forEach(f => sObs.observe(f));
 
-    /* ── Send button feedback ── */
-    window.handleSend = function(btn) {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-        btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-        setTimeout(function() {
-            btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-            btn.style.background = '';
-        }, 3000);
-    };
+    /* ── Formspree AJAX submit ── */
+    var form = document.getElementById('contactForm');
+    var successMsg = document.getElementById('formSuccess');
+    var errorMsg   = document.getElementById('formError');
+    var sendBtn    = document.getElementById('sendBtn');
+
+    // Pre-fill _next with current page URL so Formspree redirects back here
+    document.getElementById('nextInput').value = window.location.href;
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            var required = form.querySelectorAll('[required]');
+            var valid = true;
+            required.forEach(function(el) {
+                el.style.borderColor = '';
+                if (!el.value.trim()) { el.style.borderColor = 'rgba(239,68,68,.6)'; valid = false; }
+            });
+            if (!valid) return;
+
+            // Loading state
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            successMsg.style.display = 'none';
+            errorMsg.style.display   = 'none';
+
+            var data = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    successMsg.style.display = 'block';
+                    form.reset();
+                    sendBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+                    sendBtn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+                    setTimeout(function() {
+                        sendBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                        sendBtn.style.background = '';
+                        sendBtn.disabled = false;
+                    }, 4000);
+                } else {
+                    response.json().then(function(data) {
+                        errorMsg.style.display = 'block';
+                        sendBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                        sendBtn.disabled = false;
+                    });
+                }
+            })
+            .catch(function() {
+                errorMsg.style.display = 'block';
+                sendBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                sendBtn.disabled = false;
+            });
+        });
+
+        // Clear red border on input
+        form.querySelectorAll('[required]').forEach(function(el) {
+            el.addEventListener('input', function() { el.style.borderColor = ''; });
+        });
+    }
 
     /* ── Project filter tabs ── */
     const filterBtns = document.querySelectorAll('.filter-btn');
