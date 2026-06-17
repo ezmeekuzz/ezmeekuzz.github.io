@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rustom Codilan – Senior Backend Architect & IT Strategist. 8+ years building robust web systems." />
-    <title>Rustom Codilan · Executive Portfolio</title>
+    <meta name="description" content="Rustom Codilan – Senior Backend Architect & IT Strategist. 8+ years building robust web systems. Specializing in PHP, CodeIgniter, MySQL." />
+    <title>Rustom Codilan · Backend Architect & IT Strategist</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -79,6 +79,7 @@
         .delay-2 { transition-delay:.2s; }
         .delay-3 { transition-delay:.3s; }
         .delay-4 { transition-delay:.4s; }
+        .delay-5 { transition-delay:.5s; }
 
         /* ─── NAVBAR ─────────────────────────────────────────── */
         .navbar {
@@ -182,14 +183,14 @@
         }
         .btn-primary:hover { transform:translateY(-3px); box-shadow:0 18px 36px -8px rgba(249,115,22,.6); color:#000; }
 
-        .btn-ghost {
+        .btn-secondary {
             background:transparent; color:var(--text-secondary);
             border:1px solid var(--border); font-weight:600; font-size:.95rem;
             padding:.9rem 2.2rem; border-radius:100px;
             display:inline-flex; align-items:center; gap:.7rem;
             transition:all .3s var(--ease);
         }
-        .btn-ghost:hover { border-color:var(--border-accent); color:var(--text-primary); background:rgba(249,115,22,.06); }
+        .btn-secondary:hover { border-color:var(--border-accent); color:var(--text-primary); background:rgba(249,115,22,.06); }
 
         .hero-image-wrap {
             position:relative;
@@ -208,7 +209,6 @@
         .hero-image img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
         .hero-image:hover img { transform:scale(1.04); }
 
-        /* floating badge */
         .hero-badge-float {
             position:absolute; bottom:1.5rem; left:-1.5rem; z-index:2;
             background:var(--bg-card); border:1px solid var(--border-accent);
@@ -223,7 +223,7 @@
         .badge-text .bot { font-size:.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; }
 
         /* ─── STATS STRIP ────────────────────────────────────── */
-        .stats-strip { padding:3.5rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+        .stats-strip { padding:3.5rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg-surface); }
         .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
         .stat-item { text-align:center; padding:1.5rem 1rem; position:relative; }
         .stat-item:not(:last-child)::after {
@@ -249,7 +249,42 @@
         .section-title span { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
         .section-sub { color:var(--text-muted); font-size:.98rem; margin-top:.8rem; max-width:540px; line-height:1.7; }
 
-        /* ─── INFO CARDS ─────────────────────────────────────── */
+        /* ─── EXPERTISE OVERVIEW ────────────────────────────── */
+        .expertise-section { padding:5rem 0; background:var(--bg-dark); }
+        .expertise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+        .expertise-card {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r-xl); padding:2.5rem 2rem;
+            text-align:center; transition:all .35s var(--bounce);
+        }
+        .expertise-card:hover { transform:translateY(-7px); border-color:var(--border-accent); box-shadow:var(--shadow-glow); }
+        .expertise-icon {
+            font-size:2.8rem; color:var(--accent); margin-bottom:1.2rem;
+        }
+        .expertise-card h3 { font-size:1.3rem; margin-bottom:.8rem; }
+        .expertise-card p { color:var(--text-muted); font-size:.9rem; line-height:1.7; }
+
+        /* ─── TECH STACK SHOWCASE ───────────────────────────── */
+        .tech-stack-section { padding:5rem 0; background:var(--bg-surface); }
+        .tech-categories { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+        .tech-category {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r-xl); padding:2rem;
+            transition:all .3s var(--ease);
+        }
+        .tech-category:hover { border-color:var(--border-accent); }
+        .tech-category h4 {
+            color:var(--accent); font-size:.85rem; text-transform:uppercase;
+            letter-spacing:.08em; margin-bottom:1.2rem;
+        }
+        .tech-category ul { list-style:none; }
+        .tech-category ul li {
+            padding:.4rem 0; color:var(--text-secondary); font-size:.9rem;
+            display:flex; align-items:center; gap:.6rem;
+        }
+        .tech-category ul li i { color:var(--accent); font-size:.6rem; }
+
+        /* ─── ABOUT / EXPERIENCE ─────────────────────────────── */
         .info-section { padding:5rem 0; }
         .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; }
         .info-card {
@@ -372,9 +407,18 @@
         .project-body h4 a:hover { color:var(--accent); }
         .project-body p { color:var(--text-muted); font-size:.87rem; flex:1; line-height:1.65; }
 
+        .project-tech {
+            display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0;
+        }
+        .project-tech span {
+            background:var(--bg-elevated); border:1px solid var(--border);
+            border-radius:var(--r-sm); padding:.15rem .6rem;
+            font-size:.65rem; font-weight:600; color:var(--text-muted);
+        }
+
         .project-footer {
             display:flex; justify-content:space-between; align-items:center;
-            border-top:1px solid var(--border); margin-top:1.2rem; padding-top:1rem;
+            border-top:1px solid var(--border); margin-top:1rem; padding-top:1rem;
         }
         .project-footer .company { font-size:.78rem; color:var(--text-muted); display:flex; align-items:center; gap:.4rem; }
         .project-footer .company i { color:var(--accent); }
@@ -410,8 +454,10 @@
         }
         .soc-btn:hover { background:var(--accent); color:#000; border-color:transparent; transform:translateY(-3px); }
 
-        /* contact form */
-        .contact-form { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-xl); padding:2.4rem; }
+        .contact-form {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r-xl); padding:2.4rem;
+        }
         .form-group { margin-bottom:1.4rem; }
         .form-label { display:block; font-size:.8rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:.07em; margin-bottom:.6rem; }
         .form-control {
@@ -452,7 +498,6 @@
 
         /* ─── RESPONSIVE ─────────────────────────────────────── */
 
-        /* Navbar crowding fix: shrink gaps at mid widths */
         @media(max-width:1100px){
             .nav-links { gap:1.6rem; }
             .nav-links a { font-size:.82rem; }
@@ -472,6 +517,8 @@
             .info-grid { grid-template-columns:1fr; }
             .skills-grid { grid-template-columns:1fr; }
             .contact-grid { grid-template-columns:1fr; }
+            .expertise-grid { grid-template-columns:1fr; }
+            .tech-categories { grid-template-columns:repeat(2,1fr); }
             .stats-grid { grid-template-columns:repeat(2,1fr); }
         }
         @media(max-width:768px){
@@ -481,15 +528,17 @@
             .section-title { font-size:2.3rem; }
             .projects-grid { grid-template-columns:1fr; }
             .form-row { grid-template-columns:1fr; }
+            .tech-categories { grid-template-columns:1fr; }
         }
         @media(max-width:600px){
             .navbar .wrap { flex-wrap:wrap; gap:.4rem; justify-content:space-between; }
             .nav-links { order:3; width:100%; gap:.9rem; justify-content:center; flex-wrap:wrap; padding:.4rem 0 .2rem; border-top:1px solid rgba(255,255,255,.07); }
             .nav-links a { font-size:.78rem; }
+            .stats-grid { grid-template-columns:1fr 1fr; }
+            .stat-item:not(:last-child)::after { display:none; }
         }
         @media(max-width:480px){
             .hero-name { font-size:2.5rem; }
-            .stats-grid { grid-template-columns:1fr 1fr; }
         }
     </style>
 </head>
@@ -501,21 +550,23 @@
         <a href="#home" class="nav-logo">RUSTOM</a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#techstack">Tech Stack</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Hire Me</a>
+        <a href="#contact" class="nav-cta">Let's Connect</a>
     </div>
 </nav>
 
-<!-- ═══ HERO ════════════════════════════════════════════ -->
+<!-- ═══ 1. HERO SECTION ═══════════════════════════════════ -->
 <section id="home" class="hero">
     <div class="wrap hero-grid">
         <div>
             <div class="hero-eyebrow reveal">
-                <span class="dot"></span> Available for Projects
+                <span class="dot"></span> Available for Opportunities
             </div>
             <h1 class="hero-name reveal delay-1">
                 <span class="first">RUSTOM</span>
@@ -525,11 +576,11 @@
                 Backend Architect · IT Strategist · Systems Thinker
             </div>
             <p class="hero-desc reveal delay-3">
-                I design and build robust, scalable web systems with PHP (CodeIgniter), JavaScript, and MySQL — backed by 8+ years in development and infrastructure.
+                I design and build robust, scalable web systems with PHP (CodeIgniter), JavaScript, and MySQL — backed by 8+ years in development and infrastructure. I turn complex problems into elegant, reliable solutions.
             </p>
             <div class="hero-actions reveal delay-4">
-                <a href="#projects" class="btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#contact" class="btn-ghost"><i class="fa-regular fa-envelope"></i> Get in Touch</a>
+                <a href="#projects" class="btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn-secondary"><i class="fa-regular fa-envelope"></i> Get in Touch</a>
             </div>
         </div>
         <div class="hero-image-wrap reveal-right">
@@ -547,7 +598,7 @@
     </div>
 </section>
 
-<!-- ═══ STATS STRIP ═════════════════════════════════════ -->
+<!-- ═══ 2. STATS STRIP ═════════════════════════════════════ -->
 <div class="stats-strip">
     <div class="wrap">
         <div class="stats-grid">
@@ -571,12 +622,93 @@
     </div>
 </div>
 
-<!-- ═══ ABOUT / INFO CARDS ═════════════════════════════ -->
+<!-- ═══ 3. EXPERTISE OVERVIEW ══════════════════════════════ -->
+<section id="expertise" class="expertise-section">
+    <div class="wrap">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Core Competencies</div>
+            <h2 class="section-title">Areas of <span>Expertise</span></h2>
+            <p class="section-sub">A results-driven backend engineer who thrives on complex systems, clean architecture, and delivering reliable products on time.</p>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card reveal delay-1">
+                <div class="expertise-icon"><i class="fa-solid fa-server"></i></div>
+                <h3>Backend Architecture</h3>
+                <p>Designing scalable, secure, and maintainable server-side applications using PHP, CodeIgniter, and MySQL with MVC patterns.</p>
+            </div>
+            <div class="expertise-card reveal delay-2">
+                <div class="expertise-icon"><i class="fa-solid fa-database"></i></div>
+                <h3>Database Design</h3>
+                <p>Creating efficient database architectures, optimizing queries, and implementing data integrity solutions for complex systems.</p>
+            </div>
+            <div class="expertise-card reveal delay-3">
+                <div class="expertise-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <h3>IT Strategy & Infrastructure</h3>
+                <p>Planning and implementing IT solutions, server administration, and infrastructure optimization for growing organizations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ 4. TECH STACK SHOWCASE ════════════════════════════ -->
+<section id="techstack" class="tech-stack-section">
+    <div class="wrap">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Technology Stack</div>
+            <h2 class="section-title">Tools & <span>Technologies</span></h2>
+            <p class="section-sub">Comprehensive technical toolkit across development, infrastructure, and creative domains.</p>
+        </div>
+        <div class="tech-categories">
+            <div class="tech-category reveal delay-1">
+                <h4>Languages & Frameworks</h4>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> PHP / CodeIgniter 4</li>
+                    <li><i class="fa-solid fa-circle"></i> JavaScript / jQuery</li>
+                    <li><i class="fa-solid fa-circle"></i> HTML5 / CSS3</li>
+                    <li><i class="fa-solid fa-circle"></i> Bootstrap 5</li>
+                    <li><i class="fa-solid fa-circle"></i> WordPress / CMS</li>
+                </ul>
+            </div>
+            <div class="tech-category reveal delay-2">
+                <h4>Databases & Servers</h4>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> MySQL / MariaDB</li>
+                    <li><i class="fa-solid fa-circle"></i> Database Architecture</li>
+                    <li><i class="fa-solid fa-circle"></i> Query Optimization</li>
+                    <li><i class="fa-solid fa-circle"></i> cPanel / GoDaddy</li>
+                    <li><i class="fa-solid fa-circle"></i> Linux Server Admin</li>
+                </ul>
+            </div>
+            <div class="tech-category reveal delay-3">
+                <h4>Development Tools</h4>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> Git / Version Control</li>
+                    <li><i class="fa-solid fa-circle"></i> REST APIs</li>
+                    <li><i class="fa-solid fa-circle"></i> Ajax / Fetch API</li>
+                    <li><i class="fa-solid fa-circle"></i> JSON / XML</li>
+                    <li><i class="fa-solid fa-circle"></i> Postman / Testing</li>
+                </ul>
+            </div>
+            <div class="tech-category reveal delay-4">
+                <h4>Creative & IT</h4>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> Adobe Photoshop</li>
+                    <li><i class="fa-solid fa-circle"></i> Video Production</li>
+                    <li><i class="fa-solid fa-circle"></i> Hardware Troubleshooting</li>
+                    <li><i class="fa-solid fa-circle"></i> Network Administration</li>
+                    <li><i class="fa-solid fa-circle"></i> IT Strategy & Planning</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ 5. ABOUT / EXPERIENCE ═════════════════════════════ -->
 <section id="about" class="info-section">
     <div class="wrap">
         <div class="section-header reveal">
-            <div class="section-eyebrow">Who I Am</div>
-            <h2 class="section-title">Stack, Education <span>& Experience</span></h2>
+            <div class="section-eyebrow">Professional Background</div>
+            <h2 class="section-title">Education <span>& Experience</span></h2>
             <p class="section-sub">A results-driven backend engineer who thrives on complex systems, clean architecture, and delivering reliable products on time.</p>
         </div>
         <div class="info-grid">
@@ -624,7 +756,7 @@
     </div>
 </section>
 
-<!-- ═══ SKILLS ═══════════════════════════════════════════ -->
+<!-- ═══ 6. SKILLS ═══════════════════════════════════════════ -->
 <section id="skills" class="skills-section">
     <div class="wrap">
         <div class="section-header reveal">
@@ -696,7 +828,7 @@
     </div>
 </section>
 
-<!-- ═══ PROJECTS ═════════════════════════════════════════ -->
+<!-- ═══ 7. PROJECTS GALLERY ════════════════════════════════ -->
 <section id="projects" class="projects-section">
     <div class="wrap">
         <div class="section-header reveal">
@@ -721,7 +853,10 @@
                 <div class="project-body">
                     <span class="project-tag">Healthcare · Backend</span>
                     <h4><a href="https://pricemydoctor.com/" target="_blank">Price My Doctor</a></h4>
-                    <p>Medical cost transparency platform enabling patients to compare and plan for healthcare expenses.</p>
+                    <p>Medical cost transparency platform enabling patients to compare and plan for healthcare expenses. Built with CodeIgniter 4 and MySQL.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>JavaScript</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://pricemydoctor.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -737,7 +872,10 @@
                 <div class="project-body">
                     <span class="project-tag">Sports · Web App</span>
                     <h4><a href="https://cfpickum.com/" target="_blank">CFPickum</a></h4>
-                    <p>College football prediction league platform with real-time standings and game management.</p>
+                    <p>College football prediction league platform with real-time standings, game management, and user authentication system.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>JavaScript</span><span>MySQL</span><span>Ajax</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://cfpickum.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -753,7 +891,10 @@
                 <div class="project-body">
                     <span class="project-tag">NGO · WordPress</span>
                     <h4><a href="https://ilmaid.org/" target="_blank">ILMAID</a></h4>
-                    <p>Sustainability action hub empowering communities through education and advocacy.</p>
+                    <p>Sustainability action hub empowering communities through education and advocacy. Custom WordPress development with responsive design.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>PHP</span><span>CSS</span><span>Bootstrap</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://ilmaid.org/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -769,7 +910,10 @@
                 <div class="project-body">
                     <span class="project-tag">Community · Web App</span>
                     <h4><a href="https://rambhakts.com/" target="_blank">Rambhakts</a></h4>
-                    <p>Community monetization platform bridging creators with their audience through subscriptions.</p>
+                    <p>Community monetization platform bridging creators with their audience through subscriptions and content management.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Stripe</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://rambhakts.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -785,7 +929,10 @@
                 <div class="project-body">
                     <span class="project-tag">Storage · Web App</span>
                     <h4><a href="https://epicstoragehpu.com/" target="_blank">Epic Storage HPU</a></h4>
-                    <p>Dorm storage management platform for High Point University students.</p>
+                    <p>Dorm storage management platform for High Point University students with inventory tracking and booking system.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>Bootstrap</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://epicstoragehpu.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -801,7 +948,10 @@
                 <div class="project-body">
                     <span class="project-tag">Construction · WordPress</span>
                     <h4><a href="https://www.tcadviser.com.au/" target="_blank">TCA Adviser</a></h4>
-                    <p>Construction and building advisory firm website with project showcase and consultation booking.</p>
+                    <p>Construction and building advisory firm website with project showcase, consultation booking, and lead generation.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>PHP</span><span>JavaScript</span><span>SEO</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://www.tcadviser.com.au/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -817,7 +967,10 @@
                 <div class="project-body">
                     <span class="project-tag">Retail · WordPress</span>
                     <h4><a href="https://halifaxflooring.com/" target="_blank">Halifax Flooring</a></h4>
-                    <p>Premium sustainable flooring brand with full e-commerce and product catalog integration.</p>
+                    <p>Premium sustainable flooring brand with full e-commerce integration, product catalog, and inventory management.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>WooCommerce</span><span>PHP</span><span>MySQL</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://halifaxflooring.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -833,7 +986,10 @@
                 <div class="project-body">
                     <span class="project-tag">Services · WordPress</span>
                     <h4><a href="https://donvi.com.au/" target="_blank">Donvi Cleaning</a></h4>
-                    <p>Integrity-first cleaning services platform with booking system and service listings.</p>
+                    <p>Integrity-first cleaning services platform with online booking system, service listings, and client review integration.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>PHP</span><span>JavaScript</span><span>Booking API</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://donvi.com.au/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -849,7 +1005,10 @@
                 <div class="project-body">
                     <span class="project-tag">Real Estate · Web App</span>
                     <h4><a href="https://cre.dhruvrealty.com/" target="_blank">Dhruv Realty</a></h4>
-                    <p>Commercial real estate platform handling sales, leasing, and investment property listings.</p>
+                    <p>Commercial real estate platform handling sales, leasing, investment property listings, and client management.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>REST API</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://cre.dhruvrealty.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -865,7 +1024,10 @@
                 <div class="project-body">
                     <span class="project-tag">Hospitality · Web App</span>
                     <h4><a href="https://app.greenmountainstay.com/" target="_blank">Green Mountain Stay</a></h4>
-                    <p>Nature-focused vacation home rental app with booking management and availability calendar.</p>
+                    <p>Nature-focused vacation home rental app with booking management, availability calendar, and payment processing.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>Payment API</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://app.greenmountainstay.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -881,7 +1043,10 @@
                 <div class="project-body">
                     <span class="project-tag">Industrial · Web</span>
                     <h4><a href="https://contrel.it/next/contrel" target="_blank">Contrel Elettronica</a></h4>
-                    <p>Electrical monitoring, metering, and industrial automation solutions catalog.</p>
+                    <p>Electrical monitoring, metering, and industrial automation solutions catalog with technical documentation.</p>
+                    <div class="project-tech">
+                        <span>PHP</span><span>Bootstrap</span><span>JavaScript</span><span>MySQL</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://contrel.it/next/contrel" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -897,7 +1062,10 @@
                 <div class="project-body">
                     <span class="project-tag">Science · WordPress</span>
                     <h4><a href="https://lab-ready.net/" target="_blank">Lab Ready</a></h4>
-                    <p>Professional lab casework and workspace solution provider with detailed product catalog.</p>
+                    <p>Professional lab casework and workspace solution provider with detailed product catalog and project gallery.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>PHP</span><span>JavaScript</span><span>CSS</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://lab-ready.net/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -913,7 +1081,10 @@
                 <div class="project-body">
                     <span class="project-tag">Outdoor · WordPress</span>
                     <h4><a href="https://benjibuys.com/" target="_blank">Benji Buys</a></h4>
-                    <p>Outdoor recreation gear and kayak e-commerce store with detailed product listings.</p>
+                    <p>Outdoor recreation gear and kayak e-commerce store with detailed product listings and secure checkout.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>WooCommerce</span><span>PHP</span><span>MySQL</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://benjibuys.com/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -929,7 +1100,10 @@
                 <div class="project-body">
                     <span class="project-tag">Healthcare · WordPress</span>
                     <h4><a href="https://wwhospice.org/calendar/" target="_blank">WW Hospice</a></h4>
-                    <p>Community healing programs and hospice event calendar for patient and family support.</p>
+                    <p>Community healing programs and hospice event calendar for patient and family support services.</p>
+                    <div class="project-tech">
+                        <span>WordPress</span><span>PHP</span><span>Calendar Plugin</span><span>CSS</span>
+                    </div>
                     <div class="project-footer">
                         <span class="company"><i class="fa-solid fa-building"></i> Braveegg Internet</span>
                         <a href="https://wwhospice.org/calendar/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -940,13 +1114,13 @@
     </div>
 </section>
 
-<!-- ═══ CONTACT ══════════════════════════════════════════ -->
+<!-- ═══ 8. CONTACT ════════════════════════════════════════ -->
 <section id="contact" class="contact-section">
     <div class="wrap">
         <div class="section-header reveal">
-            <div class="section-eyebrow">Let's Talk</div>
+            <div class="section-eyebrow">Let's Connect</div>
             <h2 class="section-title">Get In <span>Touch</span></h2>
-            <p class="section-sub">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+            <p class="section-sub">Have a project in mind, want to collaborate, or just interested in discussing tech? I'd love to hear from you.</p>
         </div>
         <div class="contact-grid">
             <div class="reveal-left">
@@ -980,19 +1154,8 @@
             </div>
             <div class="reveal-right">
                 <div class="contact-form">
-                    <!--
-                        FORMSPREE SETUP (3 easy steps):
-                        1. Go to https://formspree.io and create a free account
-                        2. Create a new form — copy your unique endpoint URL
-                        3. Replace YOUR_FORM_ID below with that URL, e.g.:
-                           action="https://formspree.io/f/xabc1234"
-                    -->
                     <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-
-                        <!-- Formspree: redirect back to your page after submit -->
                         <input type="hidden" name="_next" value="" id="nextInput" />
-
-                        <!-- Formspree honeypot: bots fill this, humans don't see it -->
                         <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
 
                         <div class="form-row">
@@ -1018,7 +1181,6 @@
                             <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
                         </div>
 
-                        <!-- Status messages -->
                         <div id="formSuccess" style="display:none;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1rem;color:#4ade80;font-size:.9rem;">
                             <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
                         </div>
@@ -1029,6 +1191,9 @@
                         <button type="submit" class="btn-primary" id="sendBtn" style="width:100%;justify-content:center;">
                             Send Message <i class="fa-solid fa-paper-plane"></i>
                         </button>
+                        <div style="text-align:center;margin-top:.8rem;font-size:.75rem;color:var(--text-muted);">
+                            <i class="fa-regular fa-clock"></i> I respond within 24 hours
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1043,6 +1208,8 @@
             <div class="footer-brand">RUSTOM</div>
             <div class="footer-links">
                 <a href="#home">Home</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#techstack">Tech Stack</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
@@ -1104,6 +1271,18 @@
     }, { threshold: 0.12 });
     revealEls.forEach(el => obs.observe(el));
 
+    /* ── Skill bar animation ── */
+    const skillFills = document.querySelectorAll('.skill-fill');
+    const sObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            const el = entry.target;
+            setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 200);
+            sObs.unobserve(el);
+        });
+    }, { threshold: 0.3 });
+    skillFills.forEach(f => sObs.observe(f));
+
     /* ── Animated stat counters ── */
     const counters = document.querySelectorAll('.stat-number[data-count]');
     const cObs = new IntersectionObserver((entries) => {
@@ -1124,32 +1303,18 @@
     }, { threshold: 0.5 });
     counters.forEach(c => cObs.observe(c));
 
-    /* ── Skill bar animation ── */
-    const skillFills = document.querySelectorAll('.skill-fill');
-    const sObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(!entry.isIntersecting) return;
-            const el = entry.target;
-            setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 200);
-            sObs.unobserve(el);
-        });
-    }, { threshold: 0.3 });
-    skillFills.forEach(f => sObs.observe(f));
-
     /* ── Formspree AJAX submit ── */
     var form = document.getElementById('contactForm');
     var successMsg = document.getElementById('formSuccess');
     var errorMsg   = document.getElementById('formError');
     var sendBtn    = document.getElementById('sendBtn');
 
-    // Pre-fill _next with current page URL so Formspree redirects back here
     document.getElementById('nextInput').value = window.location.href;
 
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Basic validation
             var required = form.querySelectorAll('[required]');
             var valid = true;
             required.forEach(function(el) {
@@ -1158,7 +1323,6 @@
             });
             if (!valid) return;
 
-            // Loading state
             sendBtn.disabled = true;
             sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
             successMsg.style.display = 'none';
@@ -1197,7 +1361,6 @@
             });
         });
 
-        // Clear red border on input
         form.querySelectorAll('[required]').forEach(function(el) {
             el.addEventListener('input', function() { el.style.borderColor = ''; });
         });
